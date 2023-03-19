@@ -6,15 +6,15 @@
   --max-content-width: 1060px;
   --body-background: #ffffff;
   --site-header-background: #ffffff;
-  --site-body-border-top: #883ff9;
+  --site-body-border-top: #00c800;
   --site-header-border-bottom: #d9d9d9;
-  --site-header-user-menu-hover: #7644c3;
+  --site-header-user-menu-hover: #ff7f00;
   --site-header-guest-menu: #d9d9d9;
   --site-foooter: #adaab0;
   --site-footer-background: #f2f2f2;
   --post-list-meta: #706e6c;
   --post-list-pagination: #ffffff;
-  --post-list-pagination-background: #7644c3;
+  --post-list-pagination-background: #ff7f00;
   --post-detail-date: #706e6c;
   --post-sold: #b9b7ba;
   --profile-pic-placeholder: #f3f3f3;
