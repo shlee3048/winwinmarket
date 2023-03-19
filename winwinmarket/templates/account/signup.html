@@ -45,7 +45,7 @@
         {% endfor %}
       </div>
       <div class="address">
-        {{ form.address|add_class:"winwin-input"|attr:"placeholder:주소 (예: 서울시 관악구 신림동)"|add_error_class:"error" }}
+        {{ form.address|add_class:"winwin-input"|attr:"placeholder:주소 (예: 경기도 의왕시 내손중앙로11)"|add_error_class:"error" }}
         {% for error in form.address.errors %}
           <div class="error-message">{{ error }}</div>
         {% endfor %}
