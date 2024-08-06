@@ -21,12 +21,7 @@ spec:
         - containerPort: 8000
         env:
         - name: DJANGO_SETTINGS_MODULE
-          value: "your_project.settings"
-        - name: DATABASE_URL
-          valueFrom:
-            secretKeyRef:
-              name: db-credentials
-              key: database-url
+          value: "winwinmarket.settings"
               
 ---
 apiVersion: v1
