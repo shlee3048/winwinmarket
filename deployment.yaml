@@ -2,32 +2,31 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: django-app
-  labels:
-    app: django-app
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: django-app
+  replicas: 2
   template:
     metadata:
       labels:
         app: django-app
     spec:
       containers:
-      - name: django-container
-        image: us-central1-docker.pkg.dev/bright-airport-430905-u8/for-jenkinsci/django-app:latest
+      - name: django-app
+        image: hohyun10/winwinmarket_project:v4
         ports:
         - containerPort: 8000
-        env:
-        - name: DJANGO_SETTINGS_MODULE
-          value: "winwinmarket_project.settings"
-              
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: django-service
+  name: django-app-service
 spec:
   selector:
     app: django-app
