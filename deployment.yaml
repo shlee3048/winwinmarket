@@ -21,7 +21,7 @@ spec:
         - containerPort: 8000
         env:
         - name: DJANGO_SETTINGS_MODULE
-          value: "winwinmarket.settings"
+          value: "winwinmarket_project.settings"
               
 ---
 apiVersion: v1
