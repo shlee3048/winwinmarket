@@ -7,6 +7,22 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/shlee3048/winwinmarket.git'
                 echo 'Checkout completed successfully!'
             }
+        } 
+        
+        stage('Build') {
+            steps {
+                sh 'docker build -t us-central1-docker.pkg.dev/bright-airport-430905-u8/for-jenkinsci/django-app:latest .'
+                echo 'Build completed successfully!'
+            }
+        }
+
+        stage('Push to Artifact Registry') {
+            steps {
+                withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+                    sh 'docker push us-central1-docker.pkg.dev/bright-airport-430905-u8/for-jenkinsci/django-app:latest'
+                }
+                echo 'Push to Artifact Registry completed successfully!'
+            }
         }
 
        
