@@ -1,24 +1,12 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'docker:latest'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
 
     stages {
-        stage('Install Docker if not present') {
-            steps {
-                sh '''
-                    # Docker가 설치되어 있는지 확인
-                    if ! command -v docker &> /dev/null
-                    then
-                        echo "Docker is not installed. Installing Docker..."
-                        apt-get update
-                        apt-get install -y docker.io
-                        echo "Docker installed successfully!"
-                    else
-                        echo "Docker is already installed. Skipping installation."
-                    fi
-                '''
-            }
-        }
-
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/shlee3048/winwinmarket.git'
